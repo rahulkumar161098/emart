@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+*{
+   padding: 0;
+   margin: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+   --header-height: 3rem;
+   --nav-width: 68px;
+   --first-color: #2c4646;
+   --first-color-light: #AFA5D9;
+   --white-color: #F7F6FB;
+   --body-font: 'Nunito', sans-serif;
+   --normal-font-size: 1rem;
+   --z-fixed: 100
+}
+
+*,
+::before,
+::after {
+   box-sizing: border-box
+}
+
+section{
+   border: 2px solid coral;
+   // padding: 20px 10px;
+}

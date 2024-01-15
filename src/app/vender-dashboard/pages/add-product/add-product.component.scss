@@ -1,0 +1,19 @@
+::ng-deep .mat-form-field {
+   width: 100%;
+}
+
+.product_form{
+   padding: 25px 10px;
+}
+::ng-deep .mat-form-field-empty.mat-form-field-label, .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+   text-transform: capitalize;
+   font-weight: 500;
+}
+
+::ng-deep .mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
+   width: 320px;
+}
+
+.add_btn{
+   text-align: end;
+}

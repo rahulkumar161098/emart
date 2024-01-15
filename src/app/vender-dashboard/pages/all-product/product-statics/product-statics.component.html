@@ -1,0 +1,66 @@
+<section>
+   <app-page-heading [pageHeading]="pageHeadingText"></app-page-heading>
+   <div class="main">
+
+      <div class="stats-card">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-4 col-md-6" style="margin-top: 20px">
+                  <div class="card border-info">
+                     <div class="card-body bg-info text-white">
+                        <div class="row">
+                           <div class="col-3">
+                              <i class='bx bxs-store'></i>
+                           </div>
+                           <div class="col-9 text-right">
+                              <h1>30</h1>
+                              <h4>Total Units</h4>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6" style="margin-top: 20px">
+                  <div class="card border-info">
+                     <div class="card-body bg-info text-white">
+                        <div class="row">
+                           <div class="col-3">
+                              <i class='bx bxs-cart-download'></i>
+                           </div>
+                           <div class="col-9 text-right">
+                              <h1>10</h1>
+                              <h4>Sold Units</h4>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6" style="margin-top: 20px">
+                  <div class="card border-info">
+                     <div class="card-body bg-info text-white">
+                        <div class="row">
+                           <div class="col-3">
+                              <i class='bx bxs-cart-download'></i>
+                           </div>
+                           <div class="col-9 text-right">
+                              <h1>20</h1>
+                              <h4>Unsold Units</h4>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="chart px-5">
+         <h5 class="py-5">Monthaly sold units</h5>
+         <ag-charts-angular style="height: 100%" [options]="chartOptions">
+         </ag-charts-angular>
+      </div>
+      
+   </div>
+
+
+
+</section>

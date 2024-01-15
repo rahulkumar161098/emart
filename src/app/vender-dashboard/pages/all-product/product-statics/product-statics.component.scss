@@ -1,0 +1,12 @@
+.main{
+   padding: 20px 10px;
+}
+.card{
+   background-image: linear-gradient(to bottom right, var(--first-color), var(--first-color-light));
+}
+.card-body{
+   background-image: linear-gradient(to bottom right, var(--first-color), var(--first-color-light));
+   i{
+      font-size: 70px;
+   }
+}

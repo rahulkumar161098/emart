@@ -1,0 +1,67 @@
+<section>
+   <app-page-heading [pageHeading]="pageHeadingText"></app-page-heading>
+   <div class="product_form">
+      <form [formGroup]="productForm" action="">
+      <div class="row ">
+
+         <div class="col-md-6">
+            <mat-form-field appearance="outline">
+               <mat-label>Outline form field</mat-label>
+               <input matInput placeholder="Placeholder">
+            </mat-form-field>
+         </div>
+         <div class="col-md-3">
+            <mat-form-field appearance="outline">
+               <mat-label>Outline form field</mat-label>
+               <input matInput placeholder="Placeholder">
+            </mat-form-field>
+         </div>
+         <div class="col-md-3">
+            <mat-form-field appearance="outline">
+               <mat-label>Outline form field</mat-label>
+               <input matInput placeholder="Placeholder">
+            </mat-form-field>
+         </div>
+         <div class="col-md-4">
+            <mat-form-field appearance="outline">
+               <mat-label>Outline form field</mat-label>
+               <input matInput placeholder="Placeholder">
+            </mat-form-field>
+         </div>
+         <div class="col-md-4">
+            <mat-form-field appearance="outline">
+               <mat-label>Favorite food</mat-label>
+               <mat-select name="food">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                     {{food.viewValue}}
+                  </mat-option>
+               </mat-select>
+            </mat-form-field>
+         </div>
+         <div class="col-md-4">
+            <mat-form-field appearance="outline">
+               <mat-label>Favorite food</mat-label>
+               <mat-select name="food">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                     {{food.viewValue}}
+                  </mat-option>
+               </mat-select>
+            </mat-form-field>
+         </div>
+
+         <div class="col-md-8">
+            <mat-form-field appearance="outline">
+               <mat-label>product description</mat-label>
+               <textarea matInput placeholder="Description" rows="5"></textarea>
+            </mat-form-field>
+         </div>
+
+
+         <div class="add_btn">
+            <button mat-flat-button color="warn" (click)="addNewProduct()">Add</button>
+         </div>
+
+      </div>
+      </form>
+   </div>
+</section>

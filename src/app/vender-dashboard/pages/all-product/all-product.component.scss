@@ -1,0 +1,16 @@
+.view_all_prod{
+   padding: 25px 10px;
+}
+a{
+   text-decoration: none;
+   color: black;
+   font-weight: 600;
+   
+   .edit{
+      color: green;
+   }
+}
+.del{
+   color: tomato;
+   cursor: pointer;
+}
