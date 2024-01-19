@@ -27,9 +27,8 @@ export class ProductStaticsComponent implements OnInit {
     };
    }
 
-  
-
   ngOnInit(): void {
+    
   }
 
 }

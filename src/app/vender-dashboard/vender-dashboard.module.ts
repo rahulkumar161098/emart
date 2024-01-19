@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AgChartsAngularModule } from 'ag-charts-angular';
+import { HttpClientModule } from "@angular/common/http"
 
 import { VenderDashboardRoutingModule } from './vender-dashboard-routing.module';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
@@ -42,6 +43,8 @@ import { ProductStaticsComponent } from './pages/all-product/product-statics/pro
     FormsModule,
     ReactiveFormsModule,
     AgChartsAngularModule,
+    HttpClientModule,
+    
     
   ]
 })

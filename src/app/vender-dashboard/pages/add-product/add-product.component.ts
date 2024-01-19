@@ -1,9 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-interface Food {
+interface Category {
   value: string;
-  viewValue: string;
 }
 
 @Component({
@@ -16,14 +17,9 @@ export class AddProductComponent implements OnInit {
   selectedValue: string;
   // productForm: FormGroup
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+  p_category:any= [];
 
-
-  constructor( private fb: FormBuilder) { }
+  constructor( private fb: FormBuilder, private router: Router, private http: HttpClient) { }
 
   pageHeadingText: string= 'Add Product'
   toppings = new FormControl('');
@@ -47,7 +43,16 @@ export class AddProductComponent implements OnInit {
     
   }
 
+  getCategory(){
+    this.http.get('http://localhost:8000/vender-api/category/').subscribe(res=>(
+      this.p_category= res
+      // console.log(res)
+      
+    ))
+  }
+
   ngOnInit(): void {
+    this.getCategory()
   }
 
 }

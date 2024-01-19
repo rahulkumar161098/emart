@@ -1,4 +1,4 @@
-from venders.models import ListProduct, ShopDetails
+from venders.models import ListProduct, ShopDetails, ProductCategory
 from rest_framework import serializers
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -15,3 +15,8 @@ class ShopSerializerView(serializers.ModelSerializer):
    class Meta: 
       model= ShopDetails
       fields= '__all__'
+
+class CaterogySerializerView(serializers.ModelSerializer):
+   class Meta:
+      model= ProductCategory
+      fields= "__all__"

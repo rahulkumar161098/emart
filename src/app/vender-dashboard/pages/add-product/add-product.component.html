@@ -31,37 +31,24 @@
          <div class="col-md-4">
             <mat-form-field appearance="outline">
                <mat-label>Favorite food</mat-label>
-               <mat-select name="food">
-                  <mat-option *ngFor="let food of foods" [value]="food.value">
-                     {{food.viewValue}}
+               <mat-select >
+                  <mat-option *ngFor="let category of p_category" [value]="category.category">
+                     {{category.category}}
                   </mat-option>
                </mat-select>
             </mat-form-field>
          </div>
-         <div class="col-md-4">
-            <mat-form-field appearance="outline">
-               <mat-label>Favorite food</mat-label>
-               <mat-select name="food">
-                  <mat-option *ngFor="let food of foods" [value]="food.value">
-                     {{food.viewValue}}
-                  </mat-option>
-               </mat-select>
-            </mat-form-field>
-         </div>
-
          <div class="col-md-8">
             <mat-form-field appearance="outline">
                <mat-label>product description</mat-label>
                <textarea matInput placeholder="Description" rows="5"></textarea>
             </mat-form-field>
          </div>
-
-
          <div class="add_btn">
             <button mat-flat-button color="warn" (click)="addNewProduct()">Add</button>
          </div>
-
       </div>
       </form>
    </div>
 </section>
+

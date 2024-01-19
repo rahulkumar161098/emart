@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import CustomUser
-from .serializer import UserAccountSerializer
+from .serializer import UserAccountSerializer, UserLoginSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
@@ -8,6 +8,8 @@ from django.contrib.auth import authenticate
 from rest_framework.decorators import api_view
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.authtoken.models import Token
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import login, authenticate
 
 import secrets
 import random
@@ -22,6 +24,9 @@ def generate_otp(digit):
     return random.randint(0, 9)
 
 class UserAccount(APIView):
+#    authentication_classes = (QuietBasicAuthentication)
+
+
    def get(self, request, format= None ):
       json_data= CustomUser.objects.all()
       serializer= UserAccountSerializer(json_data, many=True)
@@ -37,24 +42,39 @@ class UserAccount(APIView):
 
 
 
-@api_view(['POST'])
-def user_login(request):
-    if request.method == 'POST':
-        username = request.data.get('username')
-        password = request.data.get('password')
+# @api_view(['POST'])
+# def user_login(request):
+#     #  permission_classes = [IsAuthenticated]
+#     if request.method == 'POST':
+#         username = request.data.get('username')
+#         password = request.data.get('password')
 
-        user = None
-        if '@' in username:
-            try:
-                user = CustomUser.objects.get(email=username)
-            except ObjectDoesNotExist:
-                pass
+#         user = authenticate(username=username, password=password)
+#         if user is not None:
+#         # A backend authenticated the credentials
+#             return Response(user, status=status.HTTP_200_OK)
+    
+#         else:
+#         # No backend authenticated the credentials
+            
 
-        if not user:
-            user = authenticate(username=username, password=password)
+#             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
-        if user:
-            # token, _ = Token.objects.get_or_create(user=user)
-            return Response( status=status.HTTP_200_OK)
 
-        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+# @csrf_exempt 
+class UserLogin(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = UserLoginSerializer(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+
+        user = serializer.validated_data['user']
+        # refresh = RefreshToken.for_user(user)
+        user_details= {
+            'email': user.email,
+            'name': user.first_name,
+            'id': user.id
+        }
+
+        return Response({
+            'user':user_details
+        }, status=status.HTTP_200_OK)

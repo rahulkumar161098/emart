@@ -1,0 +1,16 @@
+<div class="section">
+   <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="username">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="*********">
+      </div>
+      <button type="submit" mat-raised-button color="primary">Sign In</button>
+    </form>
+    <div class="sign_up">
+      <p>Already a account !</p>
+    </div>
+</div>

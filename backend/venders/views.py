@@ -2,8 +2,8 @@
 from django.shortcuts import render
 from rest_framework.views import APIView 
 from rest_framework.response import Response
-from .models import ListProduct, ShopDetails
-from .serializer import ProductSerializer, ShopSerializerView
+from .models import ListProduct, ShopDetails, ProductCategory
+from .serializer import ProductSerializer, ShopSerializerView, CaterogySerializerView
 from django.http import Http404 
 from rest_framework import status
 
@@ -25,6 +25,15 @@ class VenderProduct(APIView):
          serializer.save()
          return Response(status=status.HTTP_202_ACCEPTED)
       return Response (status=status.HTTP_403_FORBIDDEN)
+   
+
+class CategoryView(APIView):
+   json_data= ProductCategory.objects.all()
+   print(json_data)
+   serializer= CaterogySerializerView(json_data, many=True)
+   print('print',serializer)
+   def get(self, request):
+      return Response(self.serializer.data)
    
    
 class VenderShop(GenericAPIView, ListModelMixin, CreateModelMixin):
