@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
- import { VenderDashboardModule } from './vender-dashboard/vender-dashboard.module';
+import { VenderDashboardModule } from './vender-dashboard/vender-dashboard.module';
 
 const routes: Routes = [
   {path: 'dashboard', loadChildren:()=> import('./vender-dashboard/vender-dashboard.module').then(m=>(m.VenderDashboardModule))},
-  {path: '', loadChildren:()=> import('./shop/shop.module').then(m=>(m.ShopModule))}
+  { path: 'vender-shop-register', loadChildren:()=> import('./vender-shop-registration/vender-shop-registration.module').then(m=>(m.VenderShopRegistrationModule))},
+  {path: '', loadChildren:()=> import('./shop/shop.module').then(m=>(m.ShopModule))},
 ];
 
 @NgModule({

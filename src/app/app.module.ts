@@ -9,6 +9,11 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ShopRegisterComponent } from './component/shop-register/shop-register.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +21,18 @@ import { FooterComponent } from './components/footer/footer.component';
     SignInComponent,
     SignUpComponent,
     HeaderNavComponent,
-    FooterComponent
+    FooterComponent,
+    ShopRegisterComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -34,7 +34,7 @@ class UserAccount(APIView):
    
    def post(self, request, format= None):
       serializer= UserAccountSerializer(data= request.data)
-      otp=generate_otp(6)
+    #   otp=generate_otp(6)
       if serializer.is_valid():
          serializer.save()
          return Response(status=status.HTTP_202_ACCEPTED)
@@ -72,9 +72,11 @@ class UserLogin(APIView):
         user_details= {
             'email': user.email,
             'name': user.first_name,
-            'id': user.id
+            'id': user.id,
+            'user_type': user.u_type,
         }
 
         return Response({
-            'user':user_details
+            'user':user_details,
+            'status':status.HTTP_200_OK
         }, status=status.HTTP_200_OK)

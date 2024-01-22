@@ -3,6 +3,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { CommanService } from 'src/app/commanService/comman.service';
 import { error } from 'jquery';
+import { Route, Router } from '@angular/router'
+import { ToastNotificationsService } from '../../../vender-dashboard/toast-notifications.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,31 +18,43 @@ export class SignInComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private cService: CommanService,
-    public dialogRef: MatDialogRef<SignInComponent>, 
+    public dialogRef: MatDialogRef<SignInComponent>,
+    private route: Router,
+    private toastService: ToastNotificationsService,
 
-    ) {}
+
+  ) { }
 
   ngOnInit(): void {
-    this.loginForm= this.fb.group({
+    this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
 
-  userLogin(){
-    const username= this.loginForm.value.username;
-    const password= this.loginForm.value.password;
-    this.cService.loginApi(username, password).subscribe((res)=>{
-      console.log(res);
-      
+  userLogin() {
+    const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
+    this.cService.loginApi(username, password).subscribe((res: any) => {
+      if (res.status == 200) {
+        if (res.user.user_type === 'user') {
+          this.route.navigateByUrl('/dashboard')
+          this.loginForm.reset()
+          this.toastService.showSuccess('Logged in', 5000)
+        }
+        else {
+          this.route.navigateByUrl('/gdgfdgfd')
+          this.loginForm.reset()
+          this.toastService.showSuccess('Logged in', 5000)
+        }
+      }
     },
-    // err=>{
-    //   console.log(err.message);
-      
-    // }
+      err => {
+        const error = err.error.non_field_errors
+        this.toastService.showError(error, 5000)
+
+      }
     )
-    // console.log(this.loginForm.value);
-    
   }
 
 }

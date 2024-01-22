@@ -10,6 +10,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { VenderHeaderNavComponent } from './component/vender-header-nav/vender-header-nav.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { AllProductComponent } from './pages/all-product/all-product.component';
+import { ToastrModule } from 'ngx-toastr';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -44,7 +45,8 @@ import { ProductStaticsComponent } from './pages/all-product/product-statics/pro
     ReactiveFormsModule,
     AgChartsAngularModule,
     HttpClientModule,
-    
+    ToastrModule.forRoot(),
+
     
   ]
 })
