@@ -36,8 +36,13 @@ class UserAccount(APIView):
       serializer= UserAccountSerializer(data= request.data)
     #   otp=generate_otp(6)
       if serializer.is_valid():
-         serializer.save()
-         return Response(status=status.HTTP_202_ACCEPTED)
+         user=serializer.save()
+
+         return Response({
+             'user': user.email,
+             'message': 'User Created',
+             'status': status.HTTP_201_CREATED
+             },status=status.HTTP_201_CREATED)
       return Response (status=status.HTTP_403_FORBIDDEN)
 
 

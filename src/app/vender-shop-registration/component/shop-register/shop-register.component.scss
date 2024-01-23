@@ -1,0 +1,13 @@
+.reg{
+   background-color: aliceblue;
+   margin: auto;
+   padding: 20px 10px;
+   h4{
+      color: goldenrod;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+   }
+}
+::ng-deep .mat-form-field {
+   width: 100%;
+}

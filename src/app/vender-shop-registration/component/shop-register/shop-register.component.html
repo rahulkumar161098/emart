@@ -1,1 +1,53 @@
-<p>shop-register works!</p>
+<div class="container">
+   <div class="reg">
+      <h4>shop registration</h4>
+      <form [formGroup]="shopFormValue" style="text-align: center;">
+         <div class="row">
+            <div class="col-md-6">
+               <mat-form-field appearance="outline">
+                  <mat-label>Shop Name</mat-label>
+                  <input type="text" matInput formControlName="shop_name">
+               </mat-form-field>
+            </div>
+            <div class="col-md-6">
+               <mat-form-field appearance="outline">
+                  <mat-label>Shop GST</mat-label>
+                  <input type="text" matInput formControlName="shop_gst">
+               </mat-form-field>
+            </div>
+            <div class="col-md-12">
+               <mat-form-field appearance="outline">
+                  <mat-label>Local Address</mat-label>
+                  <input type="text" matInput formControlName="local_address">
+               </mat-form-field>
+            </div>
+            <div class="col-md-6">
+               <mat-form-field appearance="outline">
+                  <mat-label>Distict</mat-label>
+                  <input type="text" matInput formControlName="dist">
+               </mat-form-field>
+            </div>
+            <div class="col-md-6">
+               <mat-form-field appearance="outline">
+                  <mat-label>login email</mat-label>
+                  <input type="text" matInput formControlName="email">
+               </mat-form-field>
+            </div>
+            <div class="col-md-6">
+               <mat-form-field appearance="outline">
+                  <mat-label>State</mat-label>
+                  <input type="text" matInput formControlName="state">
+               </mat-form-field>
+            </div>
+            <div class="col-md-6">
+               <mat-form-field appearance="outline">
+                  <mat-label>Zip Code</mat-label>
+                  <input type="text" matInput formControlName="pin_code">
+               </mat-form-field>
+            </div>
+            <button (click)="shopDetailSubmit()" mat-raised-button color="accent">Register</button>
+         </div>
+      </form>
+   </div>
+
+</div>

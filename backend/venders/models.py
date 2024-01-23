@@ -45,7 +45,7 @@ class ListProduct(models.Model):
    created_at= models.DateTimeField(auto_now= True)
    product_unit= models.IntegerField()
    category= models.CharField(max_length=30, default="un_category")
-   email= models.OneToOneField(CustomUser, to_field='email', on_delete=models.CASCADE)
+   email= models.ForeignKey(CustomUser, to_field='email', on_delete=models.CASCADE, unique=False)
    # category1= models.ForeignKey(ProductCategory, on_delete= models.CASCADE)
 
    # def __str__(self):

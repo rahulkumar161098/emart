@@ -1,1 +1,33 @@
-<p>register works!</p>
+<div class="container">
+   <div class="reg">
+      <h4>vender registration</h4>
+      <form [formGroup]="venderForm" style="text-align: center;">
+         <mat-form-field appearance="outline">
+           <mat-label>First name</mat-label>
+           <input matInput type="text" formControlName="first_name">
+         </mat-form-field>
+         <mat-form-field appearance="outline">
+           <mat-label>last name</mat-label>
+           <input matInput type="text" formControlName="last_name">
+         </mat-form-field>
+         <mat-form-field appearance="outline">
+           <mat-label>Username</mat-label>
+           <input matInput type="text" formControlName="username">
+         </mat-form-field>
+         <mat-form-field appearance="outline">
+           <mat-label>Email</mat-label>
+           <input matInput type="email" formControlName="email">
+         </mat-form-field>
+         <mat-form-field appearance="outline" >
+           <mat-label>Password</mat-label>
+           <input matInput type="password" formControlName="password">
+         </mat-form-field>
+         <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput formControlName="password">
+          </mat-form-field>
+         <button (click)="venderReg()" mat-raised-button color="accent">Register</button>
+   </form>
+   </div>
+
+</div>
