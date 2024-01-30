@@ -8,7 +8,8 @@ from django.http import Http404
 from rest_framework import status
 
 from rest_framework.mixins import ListModelMixin, CreateModelMixin
-from rest_framework.generics import GenericAPIView
+from rest_framework.generics import GenericAPIView, RetrieveAPIView, ListAPIView
+from rest_framework import generics
 
 # Create your views here.
 
@@ -29,9 +30,9 @@ class VenderProduct(APIView):
 
 class CategoryView(APIView):
    json_data= ProductCategory.objects.all()
-   print(json_data)
+   # print(json_data)
    serializer= CaterogySerializerView(json_data, many=True)
-   print('print',serializer)
+   # print('print',serializer)
    def get(self, request):
       return Response(self.serializer.data)
    
@@ -49,4 +50,31 @@ class VenderShop(GenericAPIView, ListModelMixin, CreateModelMixin):
    def post(self, request, *args, **kwargs):
       return self.create(request, *args, **kwargs)
    
+
+class ShopDetails( RetrieveAPIView ):
+   queryset = ShopDetails.objects.all()
+   serializer_class = ShopSerializerView
+   lookup_field = 'email'  # Specify the field to use for looking up the user
+
+   def retrieve(self, request, *args, **kwargs):
+      instance = self.get_object()
+      serializer = self.get_serializer(instance)
+      return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class VenderProductList(ListAPIView ):
+   queryset =ListProduct.objects.all()
+   serializer_class= ProductSerializer
+   def get_queryset(self):
+      queryset = ListProduct.objects.all()
+      email = self.kwargs.get('email')
+      print('enail',email)
+      if email is not None:
+         queryset = queryset.filter(email=email).distinct()
+         # serializer_class = ProductSerializer(queryset, many= True)
+         return queryset
+      return Response({'message':'No product', }, status=status.HTTP_204_NO_CONTENT)
+   
+   def get(self, request, *args, **kwargs): 
+        return self.list(request, *args, **kwargs)
 

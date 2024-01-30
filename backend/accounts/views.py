@@ -76,6 +76,7 @@ class UserLogin(APIView):
         # refresh = RefreshToken.for_user(user)
         user_details= {
             'email': user.email,
+            'username': user.username,
             'name': user.first_name,
             'id': user.id,
             'user_type': user.u_type,

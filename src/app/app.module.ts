@@ -10,9 +10,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
-import { ShopRegisterComponent } from './component/shop-register/shop-register.component';
-import { LoginComponent } from './component/login/login.component';
-import { RegisterComponent } from './component/register/register.component';
+
+
 
 
 @NgModule({
@@ -22,9 +21,8 @@ import { RegisterComponent } from './component/register/register.component';
     SignUpComponent,
     HeaderNavComponent,
     FooterComponent,
-    ShopRegisterComponent,
-    LoginComponent,
-    RegisterComponent,
+    // ShopRegisterComponent,
+
   ],
   imports: [
     BrowserModule,

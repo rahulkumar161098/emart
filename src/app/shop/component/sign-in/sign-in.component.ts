@@ -37,13 +37,15 @@ export class SignInComponent implements OnInit {
     const password = this.loginForm.value.password;
     this.cService.loginApi(username, password).subscribe((res: any) => {
       if (res.status == 200) {
-        if (res.user.user_type === 'user') {
-          this.route.navigateByUrl('/dashboard')
+        if (res.user.user_type === 'vender') {
+          localStorage.setItem('user', JSON.stringify({email: res.user.email, username: res.user.username}))
+          this.route.navigateByUrl('dashboard')
           this.loginForm.reset()
           this.toastService.showSuccess('Logged in', 5000)
         }
         else {
-          this.route.navigateByUrl('/gdgfdgfd')
+          localStorage.setItem('user', JSON.stringify({email: res.user.email, username: res.user.username}))
+          this.route.navigateByUrl('/')
           this.loginForm.reset()
           this.toastService.showSuccess('Logged in', 5000)
         }

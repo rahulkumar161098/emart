@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { VenderService } from '../../service/vender.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +13,28 @@ export class DashboardComponent implements OnInit {
   sidenav:boolean = false;
   bodySize:boolean = false;
   headeSize:boolean = false
+  sessionUser: any;
+  shopEmail: any;
 
-  constructor() { }
+  getSesion(){
+    this.sessionUser = localStorage.getItem('user')
+    console.log(this.sessionUser);
+    
+  }
+
+  constructor(
+    private Vservice: VenderService, 
+    private route: Router
+  ) { 
+    this.getSesion()
+  }
+
+  getShopDetails(){
+    const email= JSON.parse( this.sessionUser)
+    console.log(email);
+    this.shopEmail= email.email
+    this.Vservice.getShopDetails('vender-api/shop/',email.email)
+  }
 
   sidenavToggle(event) {
     console.log(event);

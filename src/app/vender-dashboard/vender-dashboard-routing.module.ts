@@ -5,6 +5,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { AllProductComponent } from './pages/all-product/all-product.component';
 import { ProductStaticsComponent } from './pages/all-product/product-statics/product-statics.component';
+import { ShopDetailComponent } from './pages/shop-detail/shop-detail.component';
 
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'add-product', component: AddProductComponent },
     { path: 'all-products', component: AllProductComponent },
     { path: 'product-details', component: ProductStaticsComponent },
+    { path : 'shop/:email', component: ShopDetailComponent },
     
   ]}
 ];

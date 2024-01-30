@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { PageHeadingComponent } from './component/page-heading/page-heading.component';
 import { DelDialogComponent } from './pages/all-product/del-dialog/del-dialog.component';
 import { ProductStaticsComponent } from './pages/all-product/product-statics/product-statics.component';
+import { ShopDetailComponent } from './pages/shop-detail/shop-detail.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ProductStaticsComponent } from './pages/all-product/product-statics/pro
     AllProductComponent,
     PageHeadingComponent,
     DelDialogComponent,
-    ProductStaticsComponent
+    ProductStaticsComponent,
+    ShopDetailComponent
   ],
   imports: [
     CommonModule,
